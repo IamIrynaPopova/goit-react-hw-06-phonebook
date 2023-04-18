@@ -1,8 +1,11 @@
 import PropTypes from 'prop-types';
 import css from './ContactList.module.css';
 import { ContactItem } from '../ContactItem/ContactItem';
+import { useSelector } from 'react-redux';
 
-export const ContactList = ({ contacts, deleteItem }) => {
+export const ContactList = () => {
+  const contacts = useSelector(state => state.contacts);
+  console.log(contacts);
   return (
     <ul className={css.list}>
       {contacts.map(contact => {
@@ -13,7 +16,6 @@ export const ContactList = ({ contacts, deleteItem }) => {
             id={id}
             name={name}
             number={number}
-            deleteItem={deleteItem}
           ></ContactItem>
         );
       })}
