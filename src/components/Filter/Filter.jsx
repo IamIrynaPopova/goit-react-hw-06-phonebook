@@ -1,14 +1,12 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { GetFilter } from '../../redux/filterSlice';
-import {getVisibleUser} from '../../redux/contactsSlice'
 import css from './Filter.module.css';
 
 export const Filter = () => {
   const dispatch = useDispatch();
-  
+
    const handleChange = ({ target }) => {
     dispatch(GetFilter(target.value));
-    dispatch(getVisibleUser(target.value));
   };
   return (
     <>
