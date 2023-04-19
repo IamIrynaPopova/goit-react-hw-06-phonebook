@@ -5,7 +5,7 @@ import css from './Filter.module.css';
 export const Filter = () => {
   const dispatch = useDispatch();
 
-   const handleChange = ({ target }) => {
+  const handleChange = ({ target }) => {
     dispatch(GetFilter(target.value));
   };
   return (

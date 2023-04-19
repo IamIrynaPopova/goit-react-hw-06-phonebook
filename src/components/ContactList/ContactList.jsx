@@ -1,7 +1,7 @@
-import PropTypes from 'prop-types';
 import { ContactItem } from '../ContactItem/ContactItem';
 import { useSelector } from 'react-redux';
 import css from './ContactList.module.css';
+import PropTypes from 'prop-types';
 
 export const ContactList = () => {
   const contacts = useSelector(state => state.contacts);
