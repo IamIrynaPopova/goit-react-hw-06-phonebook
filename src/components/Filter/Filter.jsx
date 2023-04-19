@@ -1,13 +1,14 @@
-import { useState } from 'react';
-import PropTypes from 'prop-types';
+import { useDispatch, useSelector } from 'react-redux';
+import { GetFilter } from '../../redux/filterSlice';
+import {getVisibleUser} from '../../redux/contactsSlice'
 import css from './Filter.module.css';
 
-export const Filter = ({ filter }) => {
-  const [inputValue, setInputValue] = useState('');
+export const Filter = () => {
+  const dispatch = useDispatch();
   
-  const handleChange = ({ target }) => {
-    setInputValue(target.value);
-    filter(target.value);
+   const handleChange = ({ target }) => {
+    dispatch(GetFilter(target.value));
+    dispatch(getVisibleUser(target.value));
   };
   return (
     <>
@@ -18,15 +19,11 @@ export const Filter = ({ filter }) => {
         onChange={handleChange}
         type="text"
         name="filter"
-        value={inputValue}
+        value={useSelector(state => state.GetFilter)}
         pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
         title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
         required
       />
     </>
   );
-};
-
-Filter.propTypes = {
-  filter: PropTypes.func.isRequired,
 };

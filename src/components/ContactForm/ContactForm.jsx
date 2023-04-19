@@ -2,7 +2,6 @@ import { nanoid } from 'nanoid';
 import { useDispatch, useSelector } from 'react-redux';
 import { createUser } from '../../redux/contactsSlice';
 import css from './ContactForm.module.css';
-import PropTypes from 'prop-types';
 
 export const ContactForm = () => {
   const dispatch = useDispatch();
@@ -58,6 +57,4 @@ export const ContactForm = () => {
   );
 };
 
-ContactForm.propTypes = {
-  createUser: PropTypes.func.isRequired,
-};
+

@@ -5,8 +5,7 @@ import { useSelector } from 'react-redux';
 
 export const ContactList = () => {
   const contacts = useSelector(state => state.contacts);
-  console.log(contacts);
-  return (
+   return (
     <ul className={css.list}>
       {contacts.map(contact => {
         const { id, name, number } = contact;
@@ -31,5 +30,4 @@ ContactList.propTypes = {
       number: PropTypes.string.isRequired,
     })
   ),
-  deleteItem: PropTypes.func.isRequired,
-};
+ };
